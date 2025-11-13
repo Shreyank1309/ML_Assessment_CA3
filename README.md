@@ -1,46 +1,95 @@
-TITLE: MACHINE LEARNING LAB ASSESSMENT – SARCASM DETECTION USING NEWS HEADLINES
-INTRODUCTION:
-The idea of detecting sarcasm is a significant research issue in Natural Language Processing since human communication is frequently characterized by the hidden opinions, feelings, and indirect meaning. Everyday human beings have little difficulty in deciphering sarcasm due to our experience, context, tone, expressions and social knowledge. However, with machines, sarcasm is very hard due to the fact that the model perceives plain text with no context or tonal information. Let us take the example of the sentence Oh great, another exam tomorrow; it appears positive but then the meaning is negative and sarcastic. The proposed project attempts to address such an issue through machine learning algorithms and deep learning models to classify sarcasm automatically.
-This lab evaluation consists of constructing models with the purpose of categorizing news headlines as sarcastic or non-sarcastic. We discuss classical machine learning with TF IDF and Logistic Regression and we develop also a baseline LSTM on deep learning. The assignment is to process the data, turn the text into numeric characteristics, model-train, and evaluate the performance and compare the performance of the two methods.
-PROJECT OBJECTIVE:
-This project aims at creating and testing machine learning models that identify sarcasm in news headlines. The key goals are:
-• Load and learn sarcasm news headlines data.
-• Do adequate text data preprocessing.
-• Text to feature representation.
-• Implement classical ML algorithms and- perform evaluation.
-• Apply a deep learning baseline and compare the results.
-• Determine what model is the most effective in this kind of problem.
-DATASET DESCRIPTION:
-The dataset that will be utilized in this research is the renowned popular dataset of News Headlines Dataset to Sarcasm Detection. It has thousands of revelational news headlines which are taken over dozens of news web sites such as theonion.com and huffingtonpost.com. There is a binary label and a headline string in each entry. In case a headline is sarcastic or in the style of fake humor, the label is 1. In case the headline is solemn and real news, the mark is 0. This dataset is also popular in the research community due to the high level of variety, short texts, and equal amount of sarcastic humor.
+MACHINE LEARNING LAB ASSESSMENT
+SARCASM DETECTION USING NEWS HEADLINES
 
-NLP CHALLENGE in SARCASM DETECTION:
-Sarcasm is very difficult to detect because there is no background information, hidden motive and indirect meaning. Simple word frequency feature is typically sufficient in regular sentiment analysis tasks like positive/negative review. However, sarcasm is different since sarcastic sentences are constructed with positive words and the meaning of the sentence is negative. Using the example, the sentence Sure, I love standing in line, hours is made up of positive words such as love, however, it means frustration in reality. Thus we require feature representation and machine learning models that are well-constructed to ensure that we capture the hidden patterns.
+INTRODUCTION:
+The detection of sarcasm is a significant research problem in Natural Language Processing (NLP). Human communication often includes hidden meanings, emotions, and indirect expressions. While humans can easily understand sarcasm due to tone, context, and experience, machines find it difficult because they process plain text without context or tone.
+
+For example, the sentence “Oh great, another exam tomorrow” appears positive, but actually expresses frustration — a sarcastic remark. This project aims to address such challenges using Machine Learning (ML) and Deep Learning (DL) models to automatically classify news headlines as sarcastic or non-sarcastic.
+
+This lab project focuses on building and comparing two approaches:
+
+Classical Machine Learning using TF-IDF and Logistic Regression
+
+Deep Learning baseline using LSTM
+
+The process involves data preprocessing, text vectorization, model training, evaluation, and comparison of performance between both methods.
+
+PROJECT OBJECTIVE:
+The main objectives of this project are:
+• To load and analyze the News Headlines Sarcasm dataset.
+• To preprocess and clean the text data.
+• To convert the text into numerical features using TF-IDF.
+• To train and evaluate classical machine learning algorithms.
+• To implement a baseline LSTM deep learning model for comparison.
+• To determine the most effective model for sarcasm detection.
+
+DATASET DESCRIPTION:
+The dataset used in this project is the “News Headlines Dataset for Sarcasm Detection.”
+It contains thousands of real news headlines collected from websites such as TheOnion.com and HuffingtonPost.com.
+
+Each data entry contains:
+• headline – the text of the news headline
+• is_sarcastic – binary label (1 = sarcastic, 0 = not sarcastic)
+
+This dataset is popular because it contains diverse, short, and balanced text samples, making it ideal for sarcasm classification experiments.
+
+NLP CHALLENGE IN SARCASM DETECTION:
+Sarcasm detection is complex because it often lacks clear indicators and depends heavily on contextual understanding.
+Unlike sentiment analysis, where positive or negative words define tone, sarcastic sentences often use positive words to convey negative meaning.
+
+Example:
+“Sure, I love standing in line for hours.”
+Here, the word “love” is positive, but the intended meaning is frustration.
+
+Hence, sarcasm detection requires intelligent feature representation and well-trained models to capture such hidden patterns.
+
 METHODOLOGY:
-The next workflow was carried out:
-First, Data Loading and Exploration: This step will be carried out on the initial day of the project.
-Step 1: Data Loading and Exploration: This task will be conducted during the first day of the project.
-Pandas is used to load the dataset into Python. Simple examination like additional examination of total rows, quantity of sarcastic/non sarcastic samples, analysis of missing values, and examination of sample headlines was performed.
+The following workflow was followed for the implementation:
+
+Step 1: Data Loading and Exploration
+The dataset was loaded into Python using Pandas. Basic data inspection was done, including checking the number of samples, data distribution, and missing values.
+
 Step 2: Data Preprocessing
-There are steps of text cleaning, such as to lowercase, delete punctuation marks, delete superfluous space and optional stopword deletion. These procedures enhance the stability of the model since raw texts involve noise.
-Step 3: TF-IDF Extraction of features.
-Because machine learning algorithms cannot read a text, the text can be transformed into numeric vectors with TF-IDF (Term Frequency -Inverse Document Frequency) vectorization. The TF-IDF assigns more weight to meaningful words and little to common words such as the and and. This step of feature extraction is highly important as performance is very much dependent on the quality of features.
+Text was converted to lowercase, punctuation marks and unnecessary spaces were removed, and optional stopword removal was performed. These steps helped in cleaning and improving data quality.
+
+Step 3: Feature Extraction using TF-IDF
+Since ML models cannot directly understand text, TF-IDF (Term Frequency – Inverse Document Frequency) was used to convert text into numeric vectors. TF-IDF assigns higher weight to unique words and lower weight to common ones, making it an effective representation technique.
+
 Step 4: Train-Test Split
-The data set is classified as training and test set in such a way that the performance of the model is appropriately tested on a new set of data.
+The dataset was divided into training and testing subsets to evaluate performance on unseen data.
+
 Step 5: Model Training
-TF-IDF vectors called vectors were trained in a Logistic Regression model. Among the most efficient algorithms to be used in text based problems involving binary classification, there is the Logistic Regression. It is easy, quick and highly efficient.
+The Logistic Regression model was trained on the TF-IDF features. Logistic Regression is efficient, easy to implement, and suitable for binary text classification.
+
 Step 6: Evaluation
-Some of the measures of evaluation applied are Accuracy, Precision, Recall, F1 score, and Classification Report. The metrics provide information about the performance of the model in real classification problems.
-Step 7: Deep Learning Baseline with LSTM.
-An easy LSTM model had been realized with the help of the TensorFlow/Keras. Nonetheless, this baseline model did not work well since deep learning needs lots of training data and adjusting more parameters.
+Performance was measured using metrics such as Accuracy, Precision, Recall, F1 Score, and Classification Report.
+
+Step 7: Deep Learning Baseline (LSTM)
+An LSTM model was implemented using TensorFlow/Keras to compare performance. However, it achieved lower accuracy due to limited data and lack of parameter tuning.
 
 RESULTS:
-There were two TF-IDF + Logistic Regression experiments.
-Results:
-• Accuracy for Dataset-1: 0.8297
-• Accuracy for Dataset-2: 0.8398
-The LSTM model had a low validation accuracy of about 0.5232.
+Two experiments were performed using TF-IDF + Logistic Regression models.
+
+Results obtained:
+• Accuracy for Dataset 1: 0.8297
+• Accuracy for Dataset 2: 0.8398
+• LSTM model achieved approximately 0.5232 accuracy (poor performance)
+
 INTERPRETATION OF RESULTS:
-The best performance was with the TF-IDF + Logistic Regression model with an accuracy of about 84%. It demonstrates that classical machine learning methods remain to be neurotically potent to undertake short text classification tasks such as sarcasm detection. Deep learning models such as LSTM require large data size, hyperparameters need to be fine-tuned, have to be undergone several epochs, and need to be regularized in order to improve the results. Here, the baseline LSTM did not optimize itself, thus did poorly.
+The TF-IDF + Logistic Regression model achieved the highest accuracy of around 84%.
+This shows that classical machine learning techniques can outperform deep learning for small or moderate text datasets.
+
+Deep learning models like LSTM generally require larger datasets, proper hyperparameter tuning, and more computational resources to perform well.
+
+Hence, for this task, Logistic Regression with TF-IDF representation proved to be the most effective approach.
+
 CONCLUSION:
-This project has been able to show a machine learning pipeline that includes the collection of datasets to model training and evaluation. Noteworthy finding of this research is that simple and classical machine learning models are applicable at times to be better at NLP tasks, rather than deep learning based models particularly where text is not very long and dataset size is not very high. The TF-IDF representation of the feature value with Logistic Regression performed the best of about 84 percent. Consequently, classical ML method is desirable and suggested to be used in detecting sarcasm in the headline of the news.
-This project demonstrates that preprocessing, feature engineering, and model selection in the context of Natural Language Processing are important. The findings prompt the future studies of integrating linguistic features, transformers, BERT based models, and contextual embeddings to enhance better sarcasm detection accuracy in future.
+This project successfully demonstrates a complete Machine Learning pipeline — from data loading and preprocessing to model training and evaluation.
+
+The major findings are:
+• Simple and classical ML models can perform better than deep learning models for small NLP datasets.
+• TF-IDF features capture textual information efficiently and improve accuracy.
+• Proper preprocessing and model selection play a vital role in performance.
+
+The best result obtained was approximately 84% accuracy using TF-IDF with Logistic Regression.
+Future work can include using advanced NLP models such as BERT or transformer-based architectures to achieve higher sarcasm detection accuracy.
